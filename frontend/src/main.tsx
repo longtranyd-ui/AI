@@ -1573,7 +1573,15 @@ function Appointments() {
                       {dateTime(a.start_time)} → {dateTime(a.end_time)}
                     </p>
                   </div>
-                  <Badge value={a.status} />
+                  <div className="appointment-actions">
+                    <Badge value={a.status} />
+                    {user.role !== "TECHNICIAN" && a.status !== "CANCELLED" && (
+                      <button className="ai-button" onClick={() => setAi(a)}>
+                        <Sparkles size={15} />
+                        Soạn tin nhắn
+                      </button>
+                    )}
+                  </div>
                 </div>
                 {a.items.map((s: Row) => (
                   <div className="appointment-service" key={s.id}>
@@ -1587,7 +1595,7 @@ function Appointments() {
                         {s.customer_package_item_id ? "· Sử dụng gói" : ""}
                       </small>
                     </div>
-                    <Badge value={s.status} />
+                    {s.status !== a.status && <Badge value={s.status} />}
                     {["ADMIN", "TECHNICIAN"].includes(user.role) &&
                       s.status === "PENDING" &&
                       a.status !== "CANCELLED" && (
@@ -1595,33 +1603,30 @@ function Appointments() {
                       )}
                   </div>
                 ))}
-                {a.note && <p className="muted">{a.note}</p>}
-                {user.role !== "TECHNICIAN" && (
-                  <div className="card-foot">
-                    {["BOOKED", "CONFIRMED"].includes(a.status) && (
-                      <>
-                        <button onClick={() => setEdit(a)}>
-                          Đổi lịch / Phân công
-                        </button>
-                        {a.status === "BOOKED" && (
-                          <button onClick={() => change(a, "CONFIRMED")}>
-                            Xác nhận
+                {a.note && <p className="appointment-note">{a.note}</p>}
+                {user.role !== "TECHNICIAN" &&
+                  ["BOOKED", "CONFIRMED"].includes(a.status) && (
+                    <div className="card-foot">
+                      {["BOOKED", "CONFIRMED"].includes(a.status) && (
+                        <>
+                          <button onClick={() => setEdit(a)}>
+                            Đổi lịch / Phân công
                           </button>
-                        )}
-                        <button
-                          className="danger-text"
-                          onClick={() => change(a, "CANCELLED")}
-                        >
-                          Hủy lịch
-                        </button>
-                      </>
-                    )}
-                    <button className="ai-button" onClick={() => setAi(a)}>
-                      <Sparkles size={15} />
-                      Soạn tin nhắn
-                    </button>
-                  </div>
-                )}
+                          {a.status === "BOOKED" && (
+                            <button onClick={() => change(a, "CONFIRMED")}>
+                              Xác nhận
+                            </button>
+                          )}
+                          <button
+                            className="danger-text"
+                            onClick={() => change(a, "CANCELLED")}
+                          >
+                            Hủy lịch
+                          </button>
+                        </>
+                      )}
+                    </div>
+                  )}
               </article>
             ))}
           </div>
