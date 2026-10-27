@@ -1,0 +1,1 @@
+Tạo bản nháp nhắc lịch với chính xác tên khách, giờ theo giờ Việt Nam và các dịch vụ trong appointment. Chỉ trả JSON {"text":"Nội dung tin nhắn"}.

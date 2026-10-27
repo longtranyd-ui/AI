@@ -1,0 +1,2 @@
+Gợi ý tối đa hai dịch vụ phù hợp với nhu cầu và lịch sử. Nếu yêu cầu là chẩn đoán hoặc điều trị y khoa, trả recommendations rỗng và giải thích giới hạn.
+Chỉ trả JSON {"recommendations":[{"service_id":1,"reason":"Lý do"}],"message":"Nội dung tư vấn ngắn"}.

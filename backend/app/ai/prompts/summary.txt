@@ -1,0 +1,1 @@
+Tóm tắt lịch sử đã hoàn thành, thời điểm và ghi chú có trong dữ liệu. Không suy diễn hoặc đưa ra kết luận y khoa. Chỉ trả JSON {"text":"Nội dung tóm tắt"}.

@@ -1,0 +1,1 @@
+Tạo bản nháp hỏi thăm sau dịch vụ đã hoàn thành, lịch sự, không đưa hướng dẫn điều trị hoặc tự bổ sung chỉ dẫn chăm sóc không có trong dữ liệu. Chỉ trả JSON {"text":"Nội dung tin nhắn"}.
