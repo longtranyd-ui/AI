@@ -217,7 +217,7 @@ function Login({ onLogin }: { onLogin: (u: Row) => void }) {
     <div className="login">
       <div className="login-story">
         <div className="brand">
-          <Leaf /> an nhiên<span>SPA & WELLNESS</span>
+          <Leaf /> AN NHIÊN<span>SPA & WELLNESS</span>
         </div>
         <div>
           <p className="eyebrow">CHĂM SÓC TỪ NHỮNG ĐIỀU NHỎ NHẤT</p>
@@ -345,7 +345,7 @@ function App() {
       <div className="shell">
         <aside className={mobile ? "open" : ""}>
           <div className="brand">
-            <Leaf /> an nhiên<span>SPA & WELLNESS</span>
+            <Leaf /> AN NHIÊN<span>SPA & WELLNESS</span>
           </div>
           <p className="nav-caption">QUẢN LÝ SPA</p>
           <nav>
